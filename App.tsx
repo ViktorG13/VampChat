@@ -8,18 +8,14 @@ export default function App() {
   const delay = (ms: number) =>
     new Promise((resolve) => setTimeout(resolve, ms));
 
-  NavigationBar.setBehaviorAsync("inset-swipe");
-  NavigationBar.setVisibilityAsync("hidden");
-  NavigationBar.addVisibilityListener(({ visibility }) => {
-    if (visibility) {
-      delay(1000).then(() => NavigationBar.setVisibilityAsync("hidden"));
-    }
-  });
+  NavigationBar.setBackgroundColorAsync("#00aFFFFF")
+  NavigationBar.setVisibilityAsync("visible")
+  NavigationBar.setButtonStyleAsync("light");
 
   return (
     <View style={styles.container}>
       <MessagesList />
-      <StatusBar style="light" translucent={true} />
+      <StatusBar style="light" backgroundColor="#00aFFFFF"/>
     </View>
   );
 }
